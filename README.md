@@ -7,7 +7,7 @@ Complete:
 
 Andrew - Scraped pianochord.com for 152 chords into file and made random chord retriever from file
 
-Darren/Ding - Make Bar generator
+Darren/Ding - Made bar generator
 
 Pending:
 
