@@ -7,13 +7,15 @@ Complete:
 
 Andrew - Scraped pianochord.com for 152 chords into file and made random chord retriever from file
 
-Pending:
-
 Darren/Ding - Make Bar generator
 
-Lei - Make frontend getting bars from bar serving algorithm
+Pending:
 
-??? - Add user ratings to DB, make bar modification algorithms, make bar serving algorithm
+Lei - Add user ratings to DB, Make frontend getting bars from bar serving algorithm
+
+Darren/Ding -  make bar modification algorithms, 
+
+Andrew - make bar serving configuration
 
 Additionial Features:
 
