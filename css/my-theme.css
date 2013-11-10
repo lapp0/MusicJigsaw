@@ -12,3 +12,19 @@ body {
 .theme-showcase > p > .btn {
   margin: 5px 0;
 }
+
+.jumbotron {
+   position: relative;
+}
+
+.jumbotron:after {
+          background: url("img/Music-Banner.jpg") repeat scroll center center transparent;
+          bottom: 0;
+          content: "";
+          display: block;
+          left: 0;
+          opacity: 0.4;
+          position: absolute;
+          right: 0;
+          top: 0;
+}

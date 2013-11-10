@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="shortcut icon" href="../../docs-assets/ico/favicon.png">
 
-    <title>Theme Template for Bootstrap</title>
+    <title>MusicJigsaw</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.css" rel="stylesheet">
@@ -19,7 +19,7 @@
     <link href="css/my-theme.css" rel="stylesheet">
 	<!--for parse -->
 	<script src="http://www.parsecdn.com/js/parse-1.2.12.min.js"></script>
-    <script src="js/parse-init.js"></script>
+    <script src="js/parse-init.js?0200"></script>
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
@@ -66,9 +66,10 @@
     <div class="container theme-showcase">
 
       <!-- Main jumbotron for a primary marketing message or call to action -->
-      <div class="jumbotron">
-        <h2>Solve the Jigsaw of music!</h2>
-	<p>Click to rank each random created music! Then play one!</p> 
+      <div class="jumbotron"  style="background-image: url(img/Music-Banner.jpg); background-repeat:repeat-x;
+background-position:center; height=216px;">
+        <h1>Solve the Jigsaw of music!</h1>
+		<p>Click to rank each random created music! Then play one!</p> 
         <p><a href="#" class="btn btn-primary btn-lg" role="button">Learn more &raquo;</a></p>
       </div>
 
@@ -78,18 +79,33 @@
     <div class="row">  
       <!-- music -->
       <div class="col-sm-8">
-          <div class="panel panel-info">
+          <div class="panel panel-primary">
             <div class="panel-heading">
               <h3 class="panel-title">Music Panel</h3>
             </div>
             <div class="panel-body">
-            	<audio controls>
+            	<audio
+            		autoplay = "true"
+           			controls="true"
+           			style="width: 512px;">
   					<!--<source src="horse.ogg" type="audio/ogg">-->
   					<source src="quando.mp3" type="audio/mpeg">
 						Your browser does not support the audio element.
-					</audio>
+				</audio>
             </div>
           </div>
+          
+          <!-- rank -->	
+      <p>
+        <h2> What do you think? </h2>
+        <button type="button" value=0 class="btn btn-lg btn-default" onclick="javascript:submitScore($(this).val());">0</button>
+        <button type="button" value=1 class="btn btn-lg btn-primary" onclick="submitScore($(this).val());">1</button>
+        <button type="button" value=2 class="btn btn-lg btn-info" onclick="submitScore($(this).val());">2</button>
+        <button type="button" value=3 class="btn btn-lg btn-success" onclick="submitScore($(this).val());">3</button>
+        <button type="button" value=4 class="btn btn-lg btn-warning" onclick="submitScore($(this).val());">4</button>
+        <button type="button" value=5 class="btn btn-lg btn-danger" onclick="submitScore($(this).val());">5</button>
+        <!--<button type="button" class="btn btn-lg btn-link">Link</button>-->
+      </p>
        </div><!-- /.col-sm-4 -->
        
        <!-- instruments-->
@@ -111,22 +127,12 @@
       </div> <!-- /.row -->
       
       <div class="progress">
-        <div class="progress-bar progress-bar-success" style="width: 50%"><span class="sr-only">35% Complete (success)</span></div>
-        <div class="progress-bar progress-bar-warning" style="width: 20%"><span class="sr-only">20% Complete (warning)</span></div>
-        <div class="progress-bar progress-bar-danger" style="width: 10%"><span class='sr-only'>10% Complete (danger)</span></div>
+        <div class="progress-bar" style="width: 100%"><span class="sr-only">50% Complete (success)</span></div>
       </div>
-      <!-- rank -->	
-      <p>
-        <button type="button" value=0 class="btn btn-lg btn-default" onclick="javascript:submitScore($(this).val());">0</button>
-        <button type="button" value=1 class="btn btn-lg btn-primary" onclick="submitScore($(this).val());">1</button>
-        <button type="button" value=2 class="btn btn-lg btn-info" onclick="submitScore($(this).val());">2</button>
-        <button type="button" value=3 class="btn btn-lg btn-success" onclick="submitScore($(this).val());">3</button>
-        <button type="button" value=4 class="btn btn-lg btn-warning" onclick="submitScore($(this).val());">4</button>
-        <button type="button" value=5 class="btn btn-lg btn-danger" onclick="submitScore($(this).val());">5</button>
-        <!--<button type="button" class="btn btn-lg btn-link">Link</button>-->
-      </p>
+      
 	<!--Options: btn-lg [] btn-sm btn-xs-->
 
+	<!--<input type="number" name="your_awesome_parameter" data-max="4" data-min="0" id="some_id" class="rating" /> -->
 	<!-- thumbnail
       <img data-src="holder.js/200x200" class="img-thumbnail" alt="A generic square placeholder image with a white border around it, making it resemble a photograph taken with an old instant camera">
 
@@ -175,9 +181,9 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>    
+    <!--<script src="js/bootstrap-rating-input.min.js" type="text/javascript"></script>-->
     <script src="docs-assets/js/holder.js"></script>
-    <script src="js/parse-init.js"></script>
   </body>
 </html>
 

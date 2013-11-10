@@ -4,7 +4,8 @@ function submitScore(val)
 {    
     var scoreObject = Parse.Object.extend("scoreObject");
     var score = new scoreObject();
-    score.set("music_id", "test_id");
+    score.setObjectId(123);
+    score.set("music_id", "test_");
     score.set("score", val);
     score.save(null,{
       success: function(score) {
