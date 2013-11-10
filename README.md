@@ -9,4 +9,6 @@ Darren/Ding - Make Bar generator
 
 Lei - Make frontend getting bars from bar serving algorithm
 
-??? - Add user ratings to DB, make bar modification algorithms, make bar serving algorithm
+??? - Add user ratings to DB, make bar modification algorithms, make bar serving algorithm,
+
+Low priority - Analytics: how many times something has been rated, what makes it up, etc.
