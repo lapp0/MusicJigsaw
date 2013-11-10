@@ -1,4 +1,16 @@
-152 lines total (change this if file is changed)
+164 lines total (change this if file is changed)
+C
+C#
+D
+D#
+E
+F
+F#
+G
+G#
+A
+A#
+B
 C# E# G# 
 D# G A# 
 F# A# C# 
