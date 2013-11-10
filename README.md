@@ -16,3 +16,5 @@ Lei - Make frontend getting bars from bar serving algorithm
 Darren - Sequence ratings
 
 ??? - Analytics: how many times something has been rated, what makes it up, etc.
+
+Andrew - Make more popular chords more likely to appear
