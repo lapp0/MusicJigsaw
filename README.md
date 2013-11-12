@@ -61,3 +61,5 @@ Fix meta-data (data used to make mp3) generation and storage
 Fix other poorly written backend components
 
 Secure front-end components
+
+Prevent DDOS attack from user requesting large number of mp3s to be generated.
