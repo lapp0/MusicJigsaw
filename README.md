@@ -1,24 +1,27 @@
 MusicJigsaw
 ===========
 
-Web interface for putting chords and notes into bars into songs, votes by users
+Originally started as project for Midwest Facebook Hackathon by team members Andrew, Lei, Darren and Ding
 
-Complete:
+Using crowdsourcing and an evolutionary algorithm to help a computer generate music.
 
-Andrew - Scraped pianochord.com for 152 chords into file and made random chord retriever from file
+Interface:
+----------
 
-Pending:
+User is goes to home page and is given a "bar" (4 second series of chords/notes) to rate.
 
-Darren/Ding - Make Bar generator
+They rate 5 total until a "movement" (40 second series of bars) loads, and they rate that.
 
-Lei - Make frontend getting bars from bar serving algorithm
+They are given the option to view the most popular movements, FAQ and website statistics.
 
-??? - Add user ratings to DB, make bar modification algorithms, make bar serving algorithm
 
-Additionial Features:
+Backend:
+----------
 
-Darren - Sequence ratings
+All ratings are stored in a SQL DB.
 
-??? - Analytics: how many times something has been rated, what makes it up, etc.
+All bars served to users are either randomly generated from a series of chords/notes, modified from an existing bar or is an existing bar being re-rated.
 
-Andrew - Make more popular chords more likely to appear
+All melodies are the same except instead of being a series of chords/notes, they are a series of bars.
+
+High rated bars and melodies are kept to be re-rated or modified in an evolutionary algorithm. Low rated bars and melodies are unlikely to be re-rated or modified.
