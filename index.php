@@ -69,7 +69,7 @@
       <div class="jumbotron"  style="background-image: url(img/Music-Banner.jpg); background-repeat:repeat-x;
 background-position:center; height=216px;">
         <h1>Solve the Jigsaw of music!</h1>
-		<p>Click to rank each random created music! Then play one!</p> 
+		<p>Play and rate computer generated music</p>
         <p><a href="#" class="btn btn-primary btn-lg" role="button">Learn more &raquo;</a></p>
       </div>
 
@@ -84,12 +84,31 @@ background-position:center; height=216px;">
               <h3 class="panel-title">Music Panel</h3>
             </div>
             <div class="panel-body">
-            	<audio
+         <!--    <button type="button" class="btn btn-lg btn-primary" 
+			onclick="<?php $GLOBALS['str_song']="_song"?>">Prefer a Song?</button>
+            -->
+		<audio
             		autoplay = "true"
            			controls="true"
            			style="width: 512px;">
   					<!--<source src="horse.ogg" type="audio/ogg">-->
-  					<source src="quando.mp3" type="audio/mpeg">
+  					<source src="./music/<?php
+        $conn = mysql_connect("localhost", "root", "password");
+        mysql_select_db("jigsaw",$conn);
+        if (mysqli_connect_errno())
+        {
+                echo "Failed to connect to MySQL: " . mysqli_connect_error();
+        }
+        //first update the counting
+        $sqlfst="SELECT bar_id FROM bar_queue LIMIT 1";
+        $fffetch=mysql_query($sqlfst); //or die(mysql_error());
+        //update the rating result
+        $sqlsnd = "DELETE FROM bar_queue LIMIT 1";
+        mysql_query($sqlsnd);
+        mysql_close($conn);
+        $query_row = mysql_fetch_array($fffetch);
+        echo($query_row[0]);
+?>.mp3" type="audio/mpeg">
 						Your browser does not support the audio element.
 				</audio>
             </div>
@@ -98,13 +117,45 @@ background-position:center; height=216px;">
           <!-- rank -->	
       <p>
         <h2> What do you think? </h2>
-        <button type="button" value=0 class="btn btn-lg btn-default" onclick="javascript:submitScore($(this).val());">0</button>
-        <button type="button" value=1 class="btn btn-lg btn-primary" onclick="submitScore($(this).val());">1</button>
-        <button type="button" value=2 class="btn btn-lg btn-info" onclick="submitScore($(this).val());">2</button>
-        <button type="button" value=3 class="btn btn-lg btn-success" onclick="submitScore($(this).val());">3</button>
-        <button type="button" value=4 class="btn btn-lg btn-warning" onclick="submitScore($(this).val());">4</button>
-        <button type="button" value=5 class="btn btn-lg btn-danger" onclick="submitScore($(this).val());">5</button>
-        <!--<button type="button" class="btn btn-lg btn-link">Link</button>-->
+   <table>  
+   <tr>
+       <form action="update_rating.php" method="post">
+	<input type="hidden" name="q_id" value="<?php echo $query_row[0]?>">
+        <input type="hidden" name="q_rate" value="0">
+        <button type="submit" value=0 class="btn btn-lg btn-default" onclick="">0</button>
+      </form>
+<form action="update_rating.php" method="post">
+        <input type="hidden" name="q_id" value="<?php echo $query_row[0]?>">
+        <input type="hidden" name="q_rate" value="1">
+        <button type="submit" value=1 class="btn btn-lg btn-danger" onclick="">1</button>
+      </form>
+<form action="update_rating.php" method="post">
+        <input type="hidden" name="q_id" value="<?php echo $query_row[0]?>">
+        <input type="hidden" name="q_rate" value="2">
+        <button type="submit" value=2 class="btn btn-lg btn-warning" onclick="">2</button>
+      </form>
+<form action="update_rating.php" method="post">
+        <input type="hidden" name="q_id" value="<?php echo $query_row[0]?>">
+        <input type="hidden" name="q_rate" value="3">
+        <button type="submit" value=3 class="btn btn-lg btn-success" onclick="">3</button>
+      </form>
+<form action="update_rating.php" method="post">
+        <input type="hidden" name="q_id" value="<?php echo $query_row[0]?>">
+        <input type="hidden" name="q_rate" value="4">
+        <button type="submit" value=4 class="btn btn-lg btn-info" onclick="">4</button>
+      </form>
+<form action="update_rating.php" method="post">
+        <input type="hidden" name="q_id" value="<?php echo $query_row[0]?>">
+        <input type="hidden" name="q_rate" value="5">
+        <button type="submit" value=5 class="btn btn-lg btn-primary" onclick="">5</button>
+      </form> 
+   <!-- <button type="button" class="btn btn-lg btn-primary" 
+                        onclick="<?php $GLOBALS['str_song']="_song"?>">Prefer a Song?</button>-->
+        <form action = "1_song.mp3"> 
+        <button type="button" class="btn btn-lg btn-link">Download a Song?</button>
+        </form>
+   </tr>
+  </table>
       </p>
        </div><!-- /.col-sm-4 -->
        
@@ -127,7 +178,7 @@ background-position:center; height=216px;">
       </div> <!-- /.row -->
       
       <div class="progress">
-        <div class="progress-bar" style="width: 100%"><span class="sr-only">50% Complete (success)</span></div>
+        <div class="progress-bar" style="width: 100%"><span class="sr-only">Complete (success)</span></div>
       </div>
       
 	<!--Options: btn-lg [] btn-sm btn-xs-->
@@ -186,4 +237,3 @@ background-position:center; height=216px;">
     <script src="docs-assets/js/holder.js"></script>
   </body>
 </html>
-

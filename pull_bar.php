@@ -1,16 +1,17 @@
 <?php
-	$con = new mysqli("localhost", "root", "password", "jigsaw");
-	//SELECT * FROM user_rating ORDER BY bar_id DESC LIMIT 1;
-	if (mysqli_connect_errno())
+	$conn = mysql_connect("localhost", "root", "password");
+	mysql_select_db("jigsaw",$conn);
+        if (mysqli_connect_errno())
   	{
   		echo "Failed to connect to MySQL: " . mysqli_connect_error();
   	}
 	//first update the counting
-	$sql="SELECT * FROM bar_queue LIMIT = 1"; 
-	$id_fetch=mysql_query($sql,$con);
+	$sqlfst="SELECT bar_id FROM bar_queue LIMIT 1";
+	$fffetch=mysql_query($sqlfst); //or die(mysql_error());
 	//update the rating result
-	$2nd_sql = "DELETE FROM bar_queue LIMIT 1"; 
-	mysql_query($2nd_sql, $con);
-	mysql_close($con);
-	echo $id_fetch;
+	$sqlsnd = "DELETE FROM bar_queue LIMIT 1";
+	mysql_query($sqlsnd);
+        mysql_close($conn);
+        $query_row = mysql_fetch_array($fffetch);
+        echo($query_row[0]);
 ?>
